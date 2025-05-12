@@ -1,5 +1,4 @@
 #import "@preview/physica:0.9.5": *
-Daichi Suwa (ds56725)
 
 #let Ld = $cal(L)$
 #let dt = $d t$
