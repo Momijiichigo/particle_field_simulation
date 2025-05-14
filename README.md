@@ -48,7 +48,6 @@ $$
 = i \bar{\psi} \gamma^\mu \partial_\mu \psi - m \bar{\psi} \psi - q \bar{\psi} \gamma^\mu \psi A_\mu \\ - \frac{1}{4} (\partial_\mu A_\nu - \partial_\nu A_\mu)(\partial^\mu A^\nu - \partial^\nu A^\mu)
 $$
 
----
 
 ## Time evolution of $` \psi `$
 
@@ -124,12 +123,9 @@ To implement, I will reserve memory for $` A^\mu `$ and $` \partial_\mu A^\nu `$
 
 The challenge is how to get the time evolution of $` A^t `$.
 
-My strategy is:
+My strategy is to compute the values of $`A^t`$ directly and then update $`partial_t A^t`$ in the matrix, which is the opposite of what I do with other field components.
 
-- Compute $` A^t `$ directly
-- Update $` \partial_t A^t `$ in the matrix — the opposite of what is done for other components
-
-We can compute $` Q = \partial_t (\nabla \cdot \vec{A}) = \sum_j \partial_j (\partial_t A^j) `$ using the values in the $` \partial_\mu A^\nu `$ matrix.  
+We see that we are able to compute $` Q = \partial_t (\nabla \cdot \vec{A}) = \sum_j \partial_j (\partial_t A^j) `$ using the values in the $` \partial_\mu A^\nu `$ matrix.  
 Then we can obtain the value of $` P `$.
 
 $$
@@ -148,21 +144,10 @@ $$
 \quad (N = 3)
 $$
 
-With this, I can now get the updated $` A^t `$, and calculate and update:
+With this, I can now get the updated $` A^t `$, and calculate and update the $`\partial_t A^t = \frac{A^t_{\text{new}} - A^t_{\text{old}}}{dt}`$ in the matrix.
 
-$$
-\partial_t A^t = \frac{A^t_{\text{new}} - A^t_{\text{old}}}{dt}
-$$
+We see that the above uses $`(partial_t A^j)`$; we need to update them at each timestamp.
 
-We also need to update $` \partial_t A^j `$ in each timestamp for correctness.
-
-This can be done by:
-
-1. Obtaining the acceleration $` \partial_t^2 A^x `$ by calculating $` R^j `$ and $` S^j `$
-2. Using $` A^\mu `$ values at the current point and neighbors
-3. (For $` S^j `$, also using the newly calculated $` \partial_t A^t `$)
-
-We will add $` (\partial_t^2 A^j \cdot dt) `$ to $` \partial_t A^j `$ in the matrix,  
-and finally update the spatial components $` A^j `$.
-
+We can do so by obtaining the acceleration $`(partial_t^2 A^x)`$ by calculating $R^j$ and $S^j$. It is feasible by using the $`A^mu`$ values at the point and its neighbor (For $`S^j`$, I also need to use $`partial_t A^t`$  that we just calculated above.)
+We will add ($`partial_t^2 A^j dt`$) to ($`partial_t A^j`$) in the matrix, and we can finally update the spacial components $`A^j`$.
 
