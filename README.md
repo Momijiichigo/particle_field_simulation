@@ -1,4 +1,4 @@
-# particle_field_simulation
+# Particle field simulation
 
 Simulating the particle fields by taking the time-evolution equations extracted from Euler-Lagrange equations of fields.
 
