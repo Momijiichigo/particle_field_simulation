@@ -146,7 +146,7 @@ $$
 
 With this, I can now get the updated $` A^t `$, and calculate and update the $`\partial_t A^t = \frac{A^t_{\text{new}} - A^t_{\text{old}}}{dt}`$ in the matrix.
 
-We see that the above uses $`(partial_t A^j)`$; we need to update them at each timestamp.
+We see that the above uses $`(\partial_t A^j)`$; we need to update them at each timestamp.
 
 We can do so by obtaining the acceleration $`(\partial_t^2 A^x)`$ by calculating $R^j$ and $S^j$. It is feasible by using the $`A^\mu`$ values at the point and its neighbor (For $`S^j`$, I also need to use $`\partial_t A^t`$  that we just calculated above.)
 We will add ($`\partial_t^2 A^j dt`$) to ($`\partial_t A^j`$) in the matrix, and we can finally update the spacial components $`A^j`$.
