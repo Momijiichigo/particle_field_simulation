@@ -134,9 +134,17 @@ Then we can obtain the value of $` P `$.
 
 $$
 P(i, k, l) = \nabla^2 A^t = \sum_j \partial_j^2 A^t \\
+$$
+$$
 \approx \sum_{j=1}^{3} \frac{A^t_{i-1} + A^t_{i+1} - 2 A^t_i}{dx^2} \\
+$$
+$$
 = \frac{\left( \sum_{\text{all neighbors}} A^t_i \right) - 2N A^t}{dx^2} \\
+$$
+$$
 \Rightarrow A^t = \frac{1}{2N} \left( \sum_{\text{all neighbors}} A^t_i - P dx^2 \right) \\
+$$
+$$
 \quad (N = 3)
 $$
 
