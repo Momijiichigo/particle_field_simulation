@@ -11,7 +11,11 @@ As the Lagrangian density (and its Euler-Lagrange equation / the Klein-Gordon eq
 
 $$
 0 = \partial_\mu \partial^\mu \phi + m^2 \phi \\
+$$
+$$
 = \partial_t^2 \phi - \nabla^2 \phi + m^2 \phi \\
+$$
+$$
 \Rightarrow \partial_t^2 \phi = \nabla^2 \phi - m^2 \phi
 $$
 
@@ -28,6 +32,8 @@ I can then compute $` \nabla^2 \phi `$ at a point by taking the differences with
 
 $$
 \nabla^2 \phi_{(x_1, x_2, x_3)} \approx (\sum_{j=1}^{N=3} \phi_{x_j - 1} + \phi_{x_j + 1} - 2 \phi_{x_j})/dx^2 \\
+$$
+$$
 = [\left(\sum_{\text{neighbor}} \phi\right) - 2N \phi] / dx^2
 $$
 
