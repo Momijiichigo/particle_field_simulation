@@ -7,16 +7,15 @@ using ColorSchemes
 using GeometryBasics
 
 const Nx, Ny, Nz = 64, 64, 64          # grid size
-threads = (8, 8, 8)                                # 512 threads per block
+threads = (4,4,4)                                # 512 threads per block
 blocks  = (cld(Nx,threads[1]),
            cld(Ny,threads[2]),
            cld(Nz,threads[3]))                     # as many blocks as needed
-############ 1. Physical & numerical constants #############
+############ Physical & numerical constants #############
 const dx  = 0.1f0                      # spacing
 const dt  = 0.001f0                    # time step
-const m   = 0.1f0                      # mass term
 const nsteps      = 2000                # total steps
-const frame_every = 4                  # dump every n steps
+const frame_every = 5                  # dump every n steps
 
 ############ 2. Allocate GPU arrays ########################
 ϕ   = CUDA.zeros(Float32, Nx, Ny, Nz)
