@@ -7,7 +7,7 @@ This program requires Nvidia GPU (for CUDA.jl)
 
 ## Simple example: scalar field
 
-As the Lagrangian density of the scalar field can be constructed from the mass and spring system, I am now doing the reverse to its Euler-Lagrange equation:
+As the Lagrangian density of the scalar field can be constructed from the classical model of mass and spring system, I am now doing the reverse to its Euler-Lagrange equation:
 
 $$
 0 = \partial_\mu \partial^\mu \phi + m^2 \phi \\
