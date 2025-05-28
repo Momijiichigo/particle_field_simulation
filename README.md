@@ -129,7 +129,7 @@ To implement, I will reserve memory for $` A^\mu `$ and $` \partial_\mu A^\nu `$
 
 The challenge is how to get the time evolution of $` A^t `$.
 
-My strategy is to compute the values of $`A^t`$ directly and then update $`partial_t A^t`$ in the matrix, which is the opposite of what I do with other field components.
+My strategy is to compute the values of $`A^t`$ directly and then update $`\partial_t A^t`$ in the matrix, which is the opposite of what I do with other field components.
 
 We see that we are able to compute $` Q = \partial_t (\nabla \cdot \vec{A}) = \sum_j \partial_j (\partial_t A^j) `$ using the values in the $` \partial_\mu A^\nu `$ matrix.  
 Then we can obtain the value of $` P `$.
